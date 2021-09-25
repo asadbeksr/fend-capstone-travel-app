@@ -1,0 +1,330 @@
+// UI Inspiration
+// https://reiseplaner-app.herokuapp.com/
+
+//import fonts
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+//import reset
+@import 'resets';
+
+//main colors
+$base-c: #00f;
+$second-c: #44a4e4;
+$white-c: rgb(255, 255, 255);
+
+//custom cursor
+* {
+    cursor: none;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    position: relative;
+    text-decoration: none;
+}
+
+a:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    display: block;
+    margin-top: 0px;
+    left: 0%;
+    background: $second-c;
+    transition: width .3s ease;
+}
+
+a:hover:after {
+    width: 100%;
+    left: 0%;
+    background: $second-c;
+}
+
+.cursor {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    border: 1px solid $second-c;
+    transition: all 200ms ease-out;
+    position: fixed;
+    pointer-events: none;
+    left: 0;
+    top: 0;
+    transform: translate(calc(-50% + 15px), -50%);
+}
+
+.cursor2 {
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    background-color: $base-c;
+    opacity: .9;
+    position: fixed;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    transition: width .3s, height .3s, opacity .3s;
+}
+
+.hover {
+    background-color: rgb(236, 18, 171);
+    opacity: 0.5;
+}
+
+.cursorinnerhover {
+    width: 25px;
+    height: 25px;
+    opacity: .5;
+}
+
+// cursor end
+
+
+// body
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: 'Roboto', sans-serif;
+}
+
+// header
+header {
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid $base-c;
+    background: linear-gradient(to top right,
+            rgba(9, 92, 245, 0.4),
+            rgba(12, 9, 224, 0.2));
+    padding: 10px;
+    color: $base-c;
+
+    align-items: center;
+    position: fixed;
+
+
+    div {
+        font-size: 2.5em;
+    }
+}
+// plan section
+.plan {
+
+    width: 100%;
+    height: 100vh;
+    background-color: $white-c;
+    background-image: url('../media/bg.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    flex-flow: row nowrap;
+    div {
+        h1 {
+            margin-bottom: 200px;
+            font-size: 5vh;
+            color: $base-c;
+            font-weight: 700;
+        }
+        margin: 0 auto;
+        width: 80vw;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: space-evenly;
+        align-items: center;
+        form {
+            margin-top: -100px;
+
+            input {
+                font-size: 4vh;
+                padding: 5px;
+                border: 1px $base-c solid;
+                border-radius: 5px;
+            }
+            input[type=submit] {
+                background-color: $base-c;
+                color: $white-c;
+                cursor: pointer;
+            }
+            input[type=submit] {
+                background-color: $base-c;
+                color: $white-c;
+            }
+            label {
+                font-size: 3vh;
+                padding: 2px;
+            }
+        }
+    }
+}
+// Added Trip
+#MyTrips {
+    width: 100%;
+    color: $white-c;
+    height: 150vh;
+}
+.tripContent {
+    margin-top: 100px !important;
+    display: flex;
+    margin-bottom: 100px;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    justify-content: space-around;
+    .text {
+        margin-top: 10% !important;
+        height: 500px;
+        width: 600px;
+        padding: 5px;
+        color: $second-c;
+        font-weight: bold;
+        font-size: 1.5em;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        align-content: center;        
+        div {
+            margin-top: 15px;
+        }
+    }
+    .image {
+        height: 500px;
+        width: 600px;
+        
+        padding: 5px;
+        overflow: visible;
+        background-color: $white-c;        
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        margin-bottom: 100px;
+    }
+}
+// remove button
+.removeBtn {
+     margin-top: 15px; 
+    color: red;
+    cursor: pointer;
+    font-size: 3vh;
+    padding:7px 15px;
+    border: 1px solid $base-c;
+    border-radius: 5px;
+}
+// Wishes section
+.wishes {
+    display: flex;
+    margin-bottom: 100px;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    justify-content: space-around;
+    .text {
+        height: 500px;
+        width: 600px;
+        padding: 5px;
+        color: $base-c;
+        font-weight: bold;
+        font-size: 6vh;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        align-content: center;        
+        h1 {
+            margin-top: 20%;
+            span {
+                margin-top: 5px;
+            }
+        }
+    }
+    .hand {
+        height: 500px;
+        width: 500px;
+        padding: 5px;
+        overflow: visible;
+        background-color: $white-c;
+        background-image: url('../media/hand1.png');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        margin-bottom: 100px;
+    }
+}
+// footer
+footer {
+    width: 100%;
+    border-top: 1px solid $base-c;
+    background: linear-gradient(to top right,
+            rgba(9, 92, 245, 0.4),
+            rgba(12, 9, 224, 0.2));
+    color: $base-c;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    p {
+        font-weight: 500;
+        font-size: 1.5em;
+        a {
+            text-decoration: none;
+            color: $white-c;
+        }
+        a:visited {
+            color: $second-c;
+        }
+    }
+}
+// hidden  sections
+.hidden {display: none !important;}
+//media 
+
+@media only screen and (max-width:1150px) {
+    form {
+        input {
+            width: 100%;
+            margin: 10px;
+        }
+
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

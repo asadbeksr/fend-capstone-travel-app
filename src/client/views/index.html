@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Planner App / Asadbek Savronov</title>
+    <!-- favicon source -->
+    <link rel="icon" type="image/png"
+        href='https://www.seekpng.com/png/detail/581-5814770_travelling-logo-png-clipart-travel-flight-tourism-logo.png'>
+
+</head>
+
+<!-- Body starts here -->
+
+<body>
+
+    <!-- custom cursor -->
+    <div class="cursor"></div>
+    <div class="cursor2"></div>
+
+    <!-- Navbar start -->
+    <header>
+        <div>
+            Travel Planner
+        </div>
+    </header>
+    <!-- Navbar end -->
+
+
+    <!-- Plan Trip section start -->
+    <section class="plan">
+        <div>
+            <h1>Let's Plan Your Next Trip</h1>
+            <form id="iForm">
+                <input type="text" id="iPlace" placeholder="e.g. Tashkent" required onblur="capitalize()">
+                <input type="date" id="iDate" required>
+                <input type="submit" name="submitBtn" id="submitBtn" value="Add Trip">
+            </form>
+        </div>
+    </section>
+    <!-- Plan Trip section end -->
+
+
+    <!-- Trip Details section start -->
+    <section id="myTrip" class='hidden'>
+        <div class="tripContent">
+            <img class="image" alt="Your-destination-image"
+                src="https://s3.amazonaws.com/images.seroundtable.com/loading-1595849763.gif">
+            <div class="text">
+                <div>Your adventures to&nbsp;<span id="place"></span></div>
+                <div>Trip starts on &nbsp;<span id="date"></span></div>
+                <div>You have &nbsp;<span id="days"></span>&nbsp;days</div>
+                <div>Expected weather &nbsp;<span id="temp"></span><span id="weather"></span></div>
+                <div><button class="removeBtn">Delete</button></div>
+
+            </div>
+        </div>
+    </section>
+    <!-- Trip Details section end -->
+
+
+
+    <!-- Wish Section start-->
+    <section class="wishes hidden">
+        <div class="text">
+            <h1>Enjoy your journey to <span id="wishPlace"></span>!</h1>
+        </div>
+        <div class="hand">
+        </div>
+    </section>
+    <!-- Wish Section end-->
+
+
+
+
+
+    <!-- footer starts here -->
+    <footer>
+        <p>2021 by <a href="https://www.github.com/bekdevuz" target="_blank">bekdev</a></p>
+    </footer>
+    <!-- footer ends -->
+
+
+    <!-- according to : https://stackoverflow.com/questions/57191982/how-to-fix-typeerror-cannot-read-property-addeventlistener-of-null/57192080-->
+    <script src="main.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <!-- Sevice workers -->
+    <script>
+        // Capitalize
+        function capitalize() {
+            var x = document.getElementById("iPlace");
+            x.value = x.value.charAt(0).toUpperCase() + x.value.slice(1);
+        }
+
+        // Check that service workers are supported
+        if ('serviceWorker' in navigator) {
+            // Use the window load event to keep the page load performant
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js');
+            });
+        }
+    </script>
+
+    <!-- Body end -->
+</body>
+
+</html>
