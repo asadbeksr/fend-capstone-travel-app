@@ -1,5 +1,7 @@
 ## Travel Planner APP
 
+![Image of travel-app](https://udacity-reviews-uploads.s3.us-west-2.amazonaws.com/_attachments/55102/1630789341/Screenshot_2021-09-05_at_2.03.28_AM.png)
+
 5th Final project of Frontend Nanodegree program.
 
  In this project we used 3 API servises like Geonames, Weatherbit and Pixabay API.
